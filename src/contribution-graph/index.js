@@ -214,7 +214,7 @@ class ContributionGraph extends AbstractChart {
         title={this.getTitleForIndex(index)}
         fill={this.getClassNameForIndex(index)}
         {...this.getTooltipDataAttrsForIndex(index)}
-        onPress={this.handleSquareClick(index)}
+        onPress={() => this.handleSquareClick(index)}
       />
     )
   }
