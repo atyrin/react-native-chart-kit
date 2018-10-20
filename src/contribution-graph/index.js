@@ -191,6 +191,12 @@ class ContributionGraph extends AbstractChart {
     }
   }
 
+  handleSquareClick(index) {
+    if (this.state.valueCache[index]) {
+      this.handleClick(this.state.valueCache[index])
+    }
+  }
+
   renderSquare(dayIndex, index) {
     const indexOutOfRange = index < this.getNumEmptyDaysAtStart() || index >= this.getNumEmptyDaysAtStart() + this.props.numDays
     if (indexOutOfRange && !this.props.showOutOfRangeDays) {
@@ -208,6 +214,7 @@ class ContributionGraph extends AbstractChart {
         title={this.getTitleForIndex(index)}
         fill={this.getClassNameForIndex(index)}
         {...this.getTooltipDataAttrsForIndex(index)}
+        onPress={this.handleSquareClick(index)}
       />
     )
   }
