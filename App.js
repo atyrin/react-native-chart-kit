@@ -82,8 +82,17 @@ const chartConfigs = [
 ]
 
 export default class App extends React.Component {
+  constructor(props){
+    super(props);
+  }
+
   renderTabBar() {
     return <StatusBar hidden/>
+  }
+
+  handleSelectContribution(item){
+    console.log(item.value)
+    console.log(item.value.date)
   }
 
   render() {
@@ -162,6 +171,7 @@ export default class App extends React.Component {
                 numDays={105}
                 chartConfig={chartConfig}
                 style={graphStyle}
+                onClick={(val)=>this.handleSelectContribution(val)}
               />
             </ScrollView>
           )
